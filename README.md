@@ -5,4 +5,4 @@ This is a demo page to fetch and display data from an API. Created by [Harold Si
 A `.replit` configuration file has been added, so it should be possible to import the code to [Replit](https://replit.com/) directly. 
 
 # Deploy on Heroku
-Since this is a static site, you will want to use the [static buildpack](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-static) on Heroku. There is a config file, `static.json` that Heroku will be looking for. It just tells Heroku where the root of the site is.
+Since this is a static site, you will want to use the [static buildpack](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-static) on Heroku. The config file, `static.json` in the root of this repository will tell Heroku where the root of the site is.
