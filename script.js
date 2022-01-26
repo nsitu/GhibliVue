@@ -1,21 +1,22 @@
 
-
 const app = Vue.createApp({ 
     data(){
         return { 
-            films: null,
-            film: null, 
+            films: null,    /* axios stores all the Ghibli films here after fetching them */ 
+            film: null,     /* this variable updates to hold whatever film is clicked on. */ 
             loading: true
         }
     },
     methods:{       
-        showFilm(id){
-            console.log(id);
+        showFilm(id){ 
             this.film = this.films[id]
-            window.scrollTo({ top: 0, behavior: "smooth" })
+            /*Scroll to the top whenever a film is chosen*/ 
+            window.scrollTo({ top: 0, behavior: "smooth" }) 
         }
     },  
     mounted () {
+        /* Using axios to fetch data. 
+        You could also use Fetch API if you prefer*/ 
         axios.get('https://ghibliapi.herokuapp.com/films/')
             .then(response => {
                 this.films = response.data ,
@@ -23,22 +24,4 @@ const app = Vue.createApp({
             })
             .catch(error => console.log(error));
     } 
-}).component('button-counter', {
-    data() {
-      return {
-        count: 0
-      }
-    },
-    template: `
-      <button @click="count++">
-        You clicked me {{ count }} times.
-      </button>`
-  }).mount('#app')
-
-
-
-/*
-fetch('https://ghibliapi.herokuapp.com/films/')
-    .then(response => response.json())
-    .then(films => this.films = films)
-    .catch(error => console.log(error));*/
+}).mount('#app')
