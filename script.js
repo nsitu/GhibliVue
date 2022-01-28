@@ -19,6 +19,7 @@ const app = Vue.createApp({
         You could also use Fetch API if you prefer*/ 
         axios.get('https://ghibliapi.herokuapp.com/films/')
             .then(response => {
+                console.log(response);
                 this.films = response.data ,
                 this.loading = false
             })
